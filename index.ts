@@ -1,25 +1,40 @@
 interface Cabinet {
 // zwraca dowolny element o podanej nazwie
-Optional<Folder> 
-findFolderByName(String name);
+    findFolderByName(name: string):Folder;
 
 // zwraca wszystkie foldery podanego rozmiaru SMALL/MEDIUM/LARGE
-List<Folder> findFoldersBySize(String size);
+    findFoldersBySize(size: string):Folder;
 
 //zwraca liczbę wszystkich obiektów tworzących strukturę
-int count();
-}
-
-//umieścić całą logikę
-public class FileCabinet implements Cabinet {
-private List<Folder> folders;
+    count():number;
 }
 
 interface Folder {
-String getName();
-String getSize();
+    getName():string;
+    getSize():string;
 }
 
 interface MultiFolder extends Folder {
-List<Folder> getFolders();
+    getFolders():Folder[];
+}
+
+//umieścić całą logikę
+class FileCabinet implements Cabinet {
+    private folders: Folder[];
+    
+    constructor(folders: Folder[] = []){
+        this.folders = folders;
+    }
+
+    findFolderByName(name: string): Folder {
+        // ciało funkcji
+    }
+
+    findFoldersBySize(size: string): Folder {
+        // ciało funkcji
+    }
+
+    count(): number {
+        return 0;
+    }
 }
